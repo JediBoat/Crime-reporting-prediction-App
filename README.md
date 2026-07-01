@@ -227,18 +227,6 @@ The research investigates how mobile reporting systems can be integrated with st
 
 ---
 
-## Author
-
-**Jedidiah Boateng**
-
-MSc Computing
-
-Manchester Metropolitan University
-
-2026
-
----
-
 ## Disclaimer
 
 This project was developed for research and educational purposes. It is not intended for operational law enforcement use without further validation, security improvements, and real-world testing.
