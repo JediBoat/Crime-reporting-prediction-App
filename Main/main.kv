@@ -1,0 +1,1502 @@
+WindowManager:
+    MainWindow:
+    LocationWindow:
+    ConfirmationWindow:
+    AddressWindow:
+    ViolentWindow:
+    PropertyWindow:
+    SexualWindow:
+    DrugWindow:
+    PublicOrderWindow:
+    FraudWindow:
+    CyberWindow:
+    WhiteCollarWindow:
+    OrganisedCrimeWindow:
+    TransportWindow:
+    CyberReportWindow:
+    LoginWindow:
+    SignUpWindow:
+    PredictWindow:
+
+<MainWindow>:
+    name: "main"
+
+    canvas.before:
+        Color:
+            rgba: 0.6, 0.6, 0.6, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    GridLayout:
+        cols: 1
+        size_hint: None, None
+        size: root.width - 100, root.height - 100
+        pos: 50, 50
+        padding: 10
+
+
+        BoxLayout:
+            size_hint_y: None
+            height: 40
+            
+            orientation: "horizontal"
+
+            Widget:   # pushes button right
+        
+            Button:
+                text:"Log in"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                size_hint: None, None
+                halign: "right"
+                size: 160, 40
+                on_press: app.root.screen_change("login")
+                pos_hint: {"right": 1}
+
+
+        Label:
+            text: "What crime is it?"
+            color: 0, 0, 0, 1
+            size_hint_y: None
+            height: 55
+            font_size: 24
+            bold: True
+            
+        GridLayout:
+            cols:1
+            spacing: 5
+
+            Button:
+                text:"Violent Crime"
+                on_press: app.root.screen_change("violent")
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+            Button:
+                text:"Property Crime"
+                on_press: app.root.screen_change("property")
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+            Button:
+                text:"Sexual Offences"
+                on_press: app.root.screen_change("sexual")
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+            Button:
+                text:"Drug Offences"
+                on_press: app.root.screen_change("drug")
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+            Button:
+                text:"Public Order Offences"
+                on_press: app.root.screen_change("public_order")
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+            Button:
+                text:"Fraud & Financial Crime"
+                on_press: app.root.screen_change("fraud")
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+            Button:
+                text:"Cybercrime"
+                on_press: app.root.screen_change("cyber")
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+            Button:
+                text:"White-Collar Crime"
+                on_press: app.root.screen_change("white_collar")
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+            Button:
+                text:"Organised Crime"
+                on_press: app.root.screen_change("organised")
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+
+<LocationWindow>:
+    name: "location"
+
+    canvas.before:
+        Color:
+            rgba: 0.6, 0.6, 0.6, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    GridLayout:
+        cols: 1
+        size_hint: None, None
+        size: root.width - 50, root.height - 50
+        pos: 25, 25
+
+ 
+
+        Label:
+            text: "Where did it happen?"
+            color: 0, 0, 0, 1
+            size_hint_y: None
+            height: 55
+            font_size: 24
+            bold: True
+        
+ 
+
+        GridLayout:
+            cols:1
+            spacing: 5
+
+            Button:
+                text:"Where you are"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("address")
+            Button:
+                text:"Online"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("cyberreport")
+            Button:
+                text:"Somewhere else"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("address")
+            Button:
+                text:"Public tranport"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("transport")
+
+            BoxLayout:
+                padding: 10
+                spacing: 10
+
+                Widget:
+
+                Button:
+                    text: "Back"
+                    on_press: app.root.go_back()
+                    background_normal: ""
+                    background_color: 1, 1, 1, 1
+                    color: 0, 0, 0, 1
+
+
+<AddressWindow>:
+    name: "address"
+    postcode: "postcode"
+    desc: "desc"
+    hidden_label: "hidden_label"
+
+    canvas.before:
+        Color:
+            rgba: 0.6, 0.6, 0.6, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    GridLayout:
+        cols: 1
+        size_hint: None, None
+        size: root.width - 50, root.height - 50
+        pos: 25, 25
+
+
+
+        Label:
+            text: "Please enter location"
+            height: self.texture_size[1]
+            color: 0, 0, 0, 1
+            size_hint_y: None
+            height: 55
+            font_size: 24
+            bold: True
+
+
+
+        GridLayout:
+            cols:1
+            padding:5
+
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Label:
+                text:"Please give us the address where the incident happened. Enter a full postcode in the box below. If possible, could you also provide us with information, like what you've seen or heard? If you wish to be contacted, please leave your email or phone number as well."
+                size_hint_y: None
+                height: self.texture_size[1]
+                font_size: 16
+                color: 0, 0, 0, 1
+                text_size: self.width, None
+                halign: "left"
+                valign: "top"
+            
+            Label:
+                text:"Information"
+                height: self.texture_size[1]
+                size_hint_y: None
+                color: 0, 0, 0, 1
+                halign: "left"
+                valign: "top"
+                text_size: self.width, None
+                size: 100, 40
+                bold: True
+                multiline: True
+
+            TextInput:
+                id: desc
+                multiline: True
+                text_size: self.width, None
+                hint_text: "Describe the incident"
+
+            Label:
+                text:"Postcode"
+                height: self.texture_size[1]
+                size_hint_y: None
+                color: 0, 0, 0, 1
+                halign: "left"
+                valign: "top"
+                text_size: self.width, None
+                size: 100, 40
+                bold: True
+        
+            GridLayout:
+                cols:2
+                spacing: 10
+   
+                TextInput:
+                    id: postcode
+                    multiline: False
+                    size_hint: None, None
+                    size: 100, 40
+                    hint_text: "M1 5SX"
+                    on_text: self.text = self.text[:7]
+                Button:
+                    text:"Submit"
+                    background_normal: ""
+                    background_color: 0.6, 0.6, 0.6, 1
+                    color: 0, 0, 0, 1
+                    size_hint: None, None
+                    size: 100, 40
+                    on_press: app.root.geo_input(postcode, hidden_label, desc)
+
+            Label:
+                id: hidden_label
+                text:"Please enter a valid postcode"
+                height: self.texture_size[1]
+                size_hint_y: None
+                color: 1, 0, 0, 1
+                halign: "left"
+                valign: "top"
+                text_size: self.width, None
+                size: 100, 40
+                bold: True
+                opacity: 0 
+            
+            Button:
+                text: "Back"
+                on_press: app.root.go_back()
+                background_normal: ""
+                background_color: 0.6, 0.6, 0.6, 1
+                color: 0, 0, 0, 1
+
+<TransportWindow>:
+    name: "transport"
+    postcode: "postcode"
+    hidden_label: "hidden_label"
+    desc: "desc"
+
+    canvas.before:
+        Color:
+            rgba: 0.6, 0.6, 0.6, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    GridLayout:
+        cols: 1
+        size_hint: None, None
+        size: root.width - 50, root.height - 50
+        pos: 25, 25
+
+
+
+        Label:
+            text: "Please Enter location"
+            color: 0, 0, 0, 1
+            size_hint_y: None
+            height: 55
+            font_size: 24
+            bold: True
+
+
+
+        GridLayout:
+            cols:1
+            padding:5
+
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            
+            Label:
+                text: "Since it happened on a transport system. It's recommened you fill a report out here as it will directly go to British Transpot: [color=0000ff]https://www.btp.police.uk/ro/report/ocr/af/how-to-report-a-crime/[/color] "
+                size_hint_y: None
+                font_size: 16
+                markup: True
+                color: 0, 0, 0, 1
+                text_size: self.width, None
+                height: self.texture_size[1]
+                halign: "left"
+                valign: "top"
+
+            Label:
+                text: "Please provide the station or location post code where the incident occurred or the place from which you took public transport, so that we can keep a record of it."
+                size_hint_y: None
+                font_size: 16
+                color: 0, 0, 0, 1
+                height: self.texture_size[1]
+                text_size: self.width, None
+                halign: "left"
+                valign: "top"
+
+            Label:
+                text:"Information"
+                height: self.texture_size[1]
+                size_hint_y: None
+                color: 0, 0, 0, 1
+                halign: "left"
+                valign: "top"
+                text_size: self.width, None
+                size: 100, 40
+                bold: True
+                multiline: True
+
+            TextInput:
+                id: desc
+                multiline: True
+                text_size: self.width, None
+                hint_text: "Describe the incident"
+
+            Label:
+                text:"Postcode"
+                height: self.texture_size[1]
+                size_hint_y: None
+                color: 0, 0, 0, 1
+                halign: "left"
+                valign: "top"
+                text_size: self.width, None
+                size: 100, 40
+                bold: True
+        
+            GridLayout:
+                cols:2
+                spacing: 10
+   
+                TextInput:
+                    id: postcode
+                    multiline: False
+                    size_hint: None, None
+                    size: 100, 40
+                    hint_text: "M1 5SX"
+                    on_text: self.text = self.text[:7]
+                Button:
+                    text:"Submit"
+                    background_normal: ""
+                    background_color: 0.6, 0.6, 0.6, 1
+                    color: 0, 0, 0, 1
+                    size_hint: None, None
+                    size: 100, 40
+                    on_press: app.root.geo_input(postcode, hidden_label, desc)
+
+            Label:
+                id: hidden_label
+                text:"Please enter a valid postcode"
+                height: self.texture_size[1]
+                size_hint_y: None
+                color: 1, 0, 0, 1
+                halign: "left"
+                valign: "top"
+                text_size: self.width, None
+                size: 100, 40
+                bold: True
+                opacity: 0 
+
+            Button:
+                text: "Back"
+                on_press: app.root.go_back()
+                background_normal: ""
+                background_color: 0.6, 0.6, 0.6, 1
+                color: 0, 0, 0, 1
+
+<CyberReportWindow>:
+    name: "cyberreport"
+    postcode: "postcode"
+    hidden_label: "hidden_label"
+    desc: "desc"
+
+    canvas.before:
+        Color:
+            rgba: 0.6, 0.6, 0.6, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    GridLayout:
+        cols: 1
+        size_hint: None, None
+        size: root.width - 50, root.height - 50
+        pos: 25, 25
+
+
+
+        Label:
+            text: "Please Enter location"
+            color: 0, 0, 0, 1
+            size_hint_y: None
+            height: 55
+            font_size: 24
+            bold: True
+
+
+             
+        GridLayout:
+            cols:1
+            padding:5
+
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            
+            Label:
+                text: "Since it happened online, it's recommened you fill a report out here as it will directly go to the appropriate authorities: [color=0000ff]https://www.reportfraud.police.uk/[/color]\n"
+                size_hint_y: None
+                font_size: 16
+                markup: True
+                color: 0, 0, 0, 1
+                text_size: self.width, None
+                height: self.texture_size[1]
+                halign: "left"
+                valign: "top"
+
+            Label:
+                text: "Please provide the  location post code where the incident occurred, so that we can keep a record of it.\n"
+                size_hint_y: None
+                font_size: 16
+                color: 0, 0, 0, 1
+                height: self.texture_size[1]
+                text_size: self.width, None
+                halign: "left"
+                valign: "top"
+
+            Label:
+                text:"Information"
+                height: self.texture_size[1]
+                size_hint_y: None
+                color: 0, 0, 0, 1
+                halign: "left"
+                valign: "top"
+                text_size: self.width, None
+                size: 100, 40
+                bold: True
+                multiline: True
+
+            TextInput:
+                id: desc
+                multiline: True
+                text_size: self.width, None
+                hint_text: "Describe the incident"
+
+            Label:
+                text:"Postcode"
+                height: self.texture_size[1]
+                size_hint_y: None
+                color: 0, 0, 0, 1
+                halign: "left"
+                valign: "top"
+                text_size: self.width, None
+                size: 100, 40
+                bold: True
+        
+            GridLayout:
+                cols:2
+                spacing: 10
+   
+                TextInput:
+                    id: postcode
+                    multiline: False
+                    size_hint: None, None
+                    size: 100, 40
+                    hint_text: "M1 5SX"
+                    on_text: self.text = self.text[:7]
+                Button:
+                    text:"Submit"
+                    background_normal: ""
+                    background_color: 0.6, 0.6, 0.6, 1
+                    color: 0, 0, 0, 1
+                    size_hint: None, None
+                    size: 100, 40
+                    on_press: app.root.geo_input(postcode, hidden_label, desc)
+
+            Label:
+                id: hidden_label
+                text:"Please enter a valid postcode"
+                height: self.texture_size[1]
+                size_hint_y: None
+                color: 1, 0, 0, 1
+                halign: "left"
+                valign: "top"
+                text_size: self.width, None
+                size: 100, 40
+                bold: True
+                opacity: 0
+            
+            Button:
+                text: "Back"
+                on_press: app.root.go_back()
+                background_normal: ""
+                background_color: 0.6, 0.6, 0.6, 1
+                color: 0, 0, 0, 1
+
+
+<LoginWindow>:
+    name: "login"
+    user: "user"
+    password: "password"
+    hidden_label: "hidden_label"
+
+    canvas.before:
+        Color:
+            rgba: 0.6, 0.6, 0.6, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    GridLayout:
+        cols: 1
+        size_hint: None, None
+        size: root.width - 50, root.height - 50
+        pos: 25, 25
+
+
+
+        Label:
+            text: "Log In"
+            height: self.texture_size[1]
+            color: 0, 0, 0, 1
+            size_hint_y: None
+            height: 55
+            font_size: 24
+            bold: True
+             
+        GridLayout:
+            cols:1
+            padding: 5
+            spacing: 8
+
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Label:
+                text:"Please log in"
+                size_hint_y: None
+                height: self.texture_size[1]
+                font_size: 20
+                color: 0, 0, 0, 1
+                text_size: self.width, None
+                halign: "center"
+                valign: "top"
+
+            TextInput:
+                id: user
+                size_hint_y: None
+                size_hint_x: 0.6
+                height: 40
+                multiline: True
+                hint_text: "Username"
+                halign: "center"
+                     
+            TextInput:
+                id: password
+                size_hint_y: None
+                size_hint_x: 0.6
+                height: 40
+                multiline: True
+                hint_text: "Password"
+                halign: "center"
+                password: True
+            
+            Label:
+                id: hidden_label
+                text:"Incorrect password or username"
+                height: self.texture_size[1]
+                size_hint_y: None
+                color: 1, 0, 0, 1
+                halign: "center"
+                valign: "top"
+                text_size: self.width, None
+                size: 100, 40
+                bold: True
+                opacity: 0
+            
+            Button:
+                size_hint_y: None
+                size_hint_x: 0.6
+                text:"Submit"
+                background_normal: ""
+                background_color: 0.6, 0.6, 0.6, 1
+                color: 0, 0, 0, 1
+                height: 40
+                on_press: app.root.log_in(user, password, hidden_label)
+                
+
+            Button:
+                size_hint_y: None
+                size_hint_x: 0.6
+                text:"Sign up"
+                background_normal: ""
+                background_color: 0.6, 0.6, 0.6, 1
+                color: 0, 0, 0, 1
+                height: 40
+                on_press: app.root.screen_change("signup")
+                    
+            Widget:
+
+            Button:
+                text: "Back"
+                on_press: app.root.go_back()
+                background_normal: ""
+                background_color: 0.6, 0.6, 0.6, 1
+                color: 0, 0, 0, 1
+
+<SignUpWindow>:
+    name: "signup"
+    user: "user"
+    password: "password"
+
+    canvas.before:
+        Color:
+            rgba: 0.6, 0.6, 0.6, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    GridLayout:
+        cols: 1
+        size_hint: None, None
+        size: root.width - 50, root.height - 50
+        pos: 25, 25
+
+
+             
+        Label:
+            text: "Sign Up"
+            height: self.texture_size[1]
+            color: 0, 0, 0, 1
+            size_hint_y: None
+            height: 55
+            font_size: 24
+            bold: True
+
+
+                         
+        GridLayout:
+            cols:1
+            padding: 5
+            spacing: 8
+
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Label:
+                text:"Please sign up"
+                size_hint_y: None
+                height: self.texture_size[1]
+                font_size: 16
+                color: 0, 0, 0, 1
+                text_size: self.width, None
+                halign: "center"
+                valign: "top"
+
+            TextInput:
+                id: user
+                size_hint_y: None
+                size_hint_x: 0.6
+                height: 40
+                multiline: True
+                hint_text: "Provide a username"
+                halign: "center"
+            
+            
+            TextInput:
+                id: password
+                size_hint_y: None
+                size_hint_x: 0.6
+                height: 40
+                multiline: True
+                hint_text: "Provide a Password"
+                halign: "center"
+            
+            Button:
+                size_hint_y: None
+                size_hint_x: 0.6
+                text:"Submit"
+                background_normal: ""
+                background_color: 0.6, 0.6, 0.6, 1
+                color: 0, 0, 0, 1
+                height: 40
+                on_press: app.root.add_user(user, password)
+                    
+            Widget:
+
+            Button:
+                text: "Back"
+                on_press: app.root.go_back()
+                background_normal: ""
+                background_color: 0.6, 0.6, 0.6, 1
+                color: 0, 0, 0, 1
+
+
+<ConfirmationWindow>:
+    name: "confirmation"
+
+    canvas.before:
+        Color:
+            rgba: 0.6, 0.6, 0.6, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    GridLayout:
+        cols: 1
+        size_hint: None, None
+        size: root.width - 50, root.height - 50
+        pos: 25, 25
+
+        GridLayout:
+            cols:1
+            padding:5
+
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Label:
+                text: "You're report has been saved \n\n THANK YOU"
+                font_size: 16
+                color: 0, 0, 0, 1
+                text_size: self.width, None
+                halign: "center"
+                valign: "middle"
+                bold: True
+            Button:
+                text: "Back"
+                size_hint_y: None
+                font_size: 16
+                size: 200, 100
+                valign: "middle"
+                on_press: app.root.screen_change("main")
+                background_normal: ""
+                background_color: 0.6, 0.6, 0.6, 1
+                color: 0, 0, 0, 1
+
+<PredictWindow>:
+    name: "predict"
+
+    canvas.before:
+        Color:
+            rgba: 0.6, 0.6, 0.6, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    GridLayout:
+        cols: 1
+        size_hint: None, None
+        size: root.width - 50, root.height - 50
+        pos: 25, 25
+
+
+        GridLayout:
+            cols:1
+            padding: 5
+            spacing: 8
+
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+
+            BoxLayout:
+                size_hint_y: None
+                height: 150
+                
+                orientation: "horizontal"
+
+                Label:
+                    text:"Data is being proceed and loaded. Heat map will be display shortly"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    font_size: 16
+                    color: 0, 0, 0, 1
+                    text_size: self.width, None
+                    halign: "center"
+                    valign: "top"
+                    
+            Widget:
+
+            Button:
+                text: "Sign out"
+                on_press: app.root.go_back()
+                background_normal: ""
+                background_color: 0.6, 0.6, 0.6, 1
+                color: 0, 0, 0, 1
+
+
+<ViolentWindow>:
+    name: "violent"
+
+    canvas.before:
+        Color:
+            rgba: 0.6, 0.6, 0.6, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    
+    GridLayout:
+        cols: 1
+        size_hint: None, None
+        size: root.width - 50, root.height - 50
+        pos: 25, 25
+
+
+             
+        Label:
+            text: "What crime is it?"
+            color: 0, 0, 0, 1
+            size_hint_y: None
+            height: 55
+            font_size: 24
+            bold: True
+
+
+             
+        GridLayout:
+            cols:1
+            spacing: 5
+
+            Button:
+                text:"Murder / homicide"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+            Button:
+                text:"Assault"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+            Button:
+                text:"Robbery"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+            Button:
+                text:"Domestic violence"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+
+            BoxLayout:
+                padding: 10
+                spacing: 10
+
+                Widget:
+
+                Button:
+                    text: "Back"
+                    on_press: app.root.go_back()
+                    background_normal: ""
+                    background_color: 1, 1, 1, 1
+                    color: 0, 0, 0, 1
+
+<PropertyWindow>:
+    name: "property"
+
+    canvas.before:
+        Color:
+            rgba: 0.6, 0.6, 0.6, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    GridLayout:
+        cols: 1
+        size_hint: None, None
+        size: root.width - 50, root.height - 50
+        pos: 25, 25
+
+
+             
+        Label:
+            text: "What crime is it?"
+            color: 0, 0, 0, 1
+            size_hint_y: None
+            height: 55
+            font_size: 24
+            bold: True
+
+
+             
+        GridLayout:
+            cols: 1
+            spacing: 5
+
+            Button:
+                text: "Burglary"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+
+            Button:
+                text: "Theft"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+
+            Button:
+                text: "Criminal damage / vandalism"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+
+            BoxLayout:
+                padding: 10
+                spacing: 10
+
+                Widget:
+
+                Button:
+                    text: "Back"
+                    on_press: app.root.go_back()
+                    background_normal: ""
+                    background_color: 1, 1, 1, 1
+                    color: 0, 0, 0, 1
+
+<SexualWindow>:
+    name: "sexual"
+
+    canvas.before:
+        Color:
+            rgba: 0.6, 0.6, 0.6, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    GridLayout:
+        cols: 1
+        size_hint: None, None
+        size: root.width - 50, root.height - 50
+        pos: 25, 25
+
+
+             
+        Label:
+            text: "What crime is it?"
+            color: 0, 0, 0, 1
+            size_hint_y: None
+            height: 55
+            font_size: 24
+            bold: True
+
+
+                         
+        GridLayout:
+            cols: 1
+            spacing: 5
+
+            Button:
+                text: "Rape"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+
+            Button:
+                text: "Sexual assault"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+
+            Button:
+                text: "Child sexual exploitation"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+            
+            BoxLayout:
+                padding: 10
+                spacing: 10
+
+                Widget:
+
+                Button:
+                    text: "Back"
+                    on_press: app.root.go_back()
+                    background_normal: ""
+                    background_color: 1, 1, 1, 1
+                    color: 0, 0, 0, 1
+
+
+<DrugWindow>:
+    name: "drug"
+
+    canvas.before:
+        Color:
+            rgba: 0.6, 0.6, 0.6, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    GridLayout:
+        cols: 1
+        size_hint: None, None
+        size: root.width - 50, root.height - 50
+        pos: 25, 25
+
+
+             
+        Label:
+            text: "What crime is it?"
+            color: 0, 0, 0, 1
+            size_hint_y: None
+            height: 55
+            font_size: 24
+            bold: True
+
+
+             
+        GridLayout:
+            cols: 1
+            spacing: 5
+
+            Button:
+                text: "Possession of drugs"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+
+            Button:
+                text: "Drug trafficking / supply"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+
+            Button:
+                text: "Drug production"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+
+            BoxLayout:
+                padding: 10
+                spacing: 10
+
+                Widget:
+
+                Button:
+                    text: "Back"
+                    on_press: app.root.go_back()
+                    background_normal: ""
+                    background_color: 1, 1, 1, 1
+                    color: 0, 0, 0, 1
+
+
+<PublicOrderWindow>:
+    name: "public_order"
+
+    canvas.before:
+        Color:
+            rgba: 0.6, 0.6, 0.6, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    GridLayout:
+        cols: 1
+        size_hint: None, None
+        size: root.width - 50, root.height - 50
+        pos: 25, 25
+
+
+             
+        Label:
+            text: "What crime is it?"
+            color: 0, 0, 0, 1
+            size_hint_y: None
+            height: 55
+            font_size: 24
+            bold: True
+
+
+             
+        GridLayout:
+            cols: 1
+            spacing: 5
+
+            Button:
+                text: "Rioting"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+
+            Button:
+                text: "Disorderly conduct"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+
+            Button:
+                text: "Hate crime"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+
+            Button:
+                text: "Harassment"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+            BoxLayout:
+                padding: 10
+                spacing: 10
+
+                Widget:
+
+                Button:
+                    text: "Back"
+                    on_press: app.root.go_back()
+                    background_normal: ""
+                    background_color: 1, 1, 1, 1
+                    color: 0, 0, 0, 1
+
+
+<FraudWindow>:
+    name: "fraud"
+
+    canvas.before:
+        Color:
+            rgba: 0.6, 0.6, 0.6, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    GridLayout:
+        cols: 1
+        size_hint: None, None
+        size: root.width - 50, root.height - 50
+        pos: 25, 25
+
+
+             
+        Label:
+            text: "What crime is it?"
+            color: 0, 0, 0, 1
+            size_hint_y: None
+            height: 55
+            font_size: 24
+            bold: True
+
+
+             
+        GridLayout:
+            cols: 1
+            spacing: 5
+
+            Button:
+                text: "Identity theft"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+
+            Button:
+                text: "Credit card fraud"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+
+            Button:
+                text: "Online scams"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+
+            BoxLayout:
+                padding: 10
+                spacing: 10
+
+                Widget:
+
+                Button:
+                    text: "Back"
+                    on_press: app.root.go_back()
+                    background_normal: ""
+                    background_color: 1, 1, 1, 1
+                    color: 0, 0, 0, 1
+
+
+<CyberWindow>:
+    name: "cyber"
+
+    canvas.before:
+        Color:
+            rgba: 0.6, 0.6, 0.6, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    GridLayout:
+        cols: 1
+        size_hint: None, None
+        size: root.width - 50, root.height - 50
+        pos: 25, 25
+
+
+             
+        Label:
+            text: "What crime is it?"
+            color: 0, 0, 0, 1
+            size_hint_y: None
+            height: 55
+            font_size: 24
+            bold: True
+
+
+             
+        GridLayout:
+            cols: 1
+            spacing: 5
+
+            Button:
+                text: "Hacking"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("cyberreport"); app.root.confim_crime(self)
+
+            Button:
+                text: "Phishing"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("cyberreport"); app.root.confim_crime(self)
+
+            Button:
+                text: "Malware attack"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("cyberreport"); app.root.confim_crime(self)
+
+            BoxLayout:
+                padding: 10
+                spacing: 10
+
+                Widget:
+
+                Button:
+                    text: "Back"
+                    on_press: app.root.go_back()
+                    background_normal: ""
+                    background_color: 1, 1, 1, 1
+                    color: 0, 0, 0, 1
+
+
+<WhiteCollarWindow>:
+    name: "white_collar"
+
+    canvas.before:
+        Color:
+            rgba: 0.6, 0.6, 0.6, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    GridLayout:
+        cols: 1
+        size_hint: None, None
+        size: root.width - 50, root.height - 50
+        pos: 25, 25
+
+
+             
+        Label:
+            text: "What crime is it?"
+            color: 0, 0, 0, 1
+            size_hint_y: None
+            height: 55
+            font_size: 24
+            bold: True
+
+
+             
+        GridLayout:
+            cols: 1
+            spacing: 5
+
+            Button:
+                text: "Embezzlement"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+
+            Button:
+                text: "Insider trading"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+
+            Button:
+                text: "Corporate fraud"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+
+            BoxLayout:
+                padding: 10
+                spacing: 10
+
+                Widget:
+
+                Button:
+                    text: "Back"
+                    on_press: app.root.go_back()
+                    background_normal: ""
+                    background_color: 1, 1, 1, 1
+                    color: 0, 0, 0, 1
+
+
+<OrganisedCrimeWindow>:
+    name: "organised"
+
+    canvas.before:
+        Color:
+            rgba: 0.6, 0.6, 0.6, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    GridLayout:
+        cols: 1
+        size_hint: None, None
+        size: root.width - 50, root.height - 50
+        pos: 25, 25
+
+
+             
+        Label:
+            text: "What crime is it?"
+            color: 0, 0, 0, 1
+            size_hint_y: None
+            height: 55
+            font_size: 24
+            bold: True
+
+
+             
+        GridLayout:
+            cols: 1
+            spacing: 5
+
+            Button:
+                text: "Human trafficking"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+
+            Button:
+                text: "Drug cartel activity"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+
+            Button:
+                text: "Money laundering"
+                background_normal: ""
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+                on_press: app.root.screen_change("location"); app.root.confim_crime(self)
+
+            BoxLayout:
+                padding: 10
+                spacing: 10
+
+                Widget:
+
+                Button:
+                    text: "Back"
+                    on_press: app.root.go_back()
+                    background_normal: ""
+                    background_color: 1, 1, 1, 1
+                    color: 0, 0, 0, 1
+
